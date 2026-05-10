@@ -1,0 +1,23 @@
+name: Build EXE
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: microsoft/setup-msbuild@v1
+
+      - run: nuget restore
+
+      - run: msbuild *.sln /p:Configuration=Release
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exe
+          path: "**/bin/Release/*.exe"
