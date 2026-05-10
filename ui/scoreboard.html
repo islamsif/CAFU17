@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html id="scoreboard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/ins.css">
+</head>
+<body>
+    <div class="main">
+        <div class="scoreboard">
+            <span id="home-score">
+                <h1>
+                    <div class="home team-name placeholder">Home</div>
+                    <div class="pseudo-relative"><span id="home-name" class="team-name">Home</span></div>
+                </h1>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+            </span>
+            <span id="main-clock">
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+                
+               
+                <img src="../res/clock/digits/colon.svg" width="8%" />
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+            </span>
+            <span id="guest-score">
+                <h1>
+                    <div class="guest team-name placeholder">Home</div>
+                    <div class="pseudo-relative"><span id="guest-name" class="team-name">Guest</span></div>
+                </h1>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%" />
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%" />
+            </span>
+            
+            <div id="home-logo">
+                <img src="../res/defaultlogo.png" />
+            </div>
+            
+         
+            
+            <div id="guest-logo">
+                <img src="../res/defaultlogo.png" />
+            </div>
+            <span id="home-faul">
+                <h1>
+                    <div class="home team-name placeholder">FOULS</div>
+                    <div class="pseudo-relative"><span id="home-name" class="team-name">FOULS</span></div>
+                </h1>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+            </span>
+
+           <div id="guest-faul" class="hidden">
+
+                <h1>
+                    <div class="guest team-name placeholder" >ADD TIME</div>
+           
+                    <div class="pseudo-relative">
+                        <span id="guest-faul-name" class="team-name">ADD TIME</span>
+                    </div>
+                </h1>
+            
+                <img class="digite" src="../res/clock/digits/plus.svg" width="16%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+            
+            </div>
+            
+            
+            
+            <span id="guest-por">
+                <h1>
+                    <div class="guest team-name placeholder">HALF </div>
+                    <div class="pseudo-relative"><span id="guest-por-name" class="team-name">HALF</span></div>
+                </h1>
+                
+                    <img class="digit" src="../res/clock/digits/B0.svg" width="16%" style="display: none;"/>
+                    <img class="digit" src="../res/clock/digits/0.svg" width="16%"/>
+                
+               
+            </span>
+            <span id="home-por">
+                <h1>
+                    <div class="home team-name placeholder">P</div>
+                    <div class="pseudo-relative"><span id="home-por-name" class="team-name">PER6IOD</span></div>
+                </h1>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+                <img class="digit" src="../res/clock/digits/0.svg" width="40%"/>
+            </span>
+            
+           
+        </div>
+    </div>
+    <script src="../js/scoreboard.js"></script>
+
+
+</body>
+</html>
