@@ -2,32 +2,30 @@ name: Build Portable EXE
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 16
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install pkg globally
-        run: npm install -g pkg
-
-      - name: Build portable exe
-        run: pkg . --targets node18-win-x64 --output app.exe
+      - name: Build portable EXE
+        run: npx electron-builder --win portable
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
           name: portable-exe
-          path: app.exe
+          path: dist/*.exe

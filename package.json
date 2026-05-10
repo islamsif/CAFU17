@@ -12,7 +12,7 @@
     "docs": "jsdoc -P ./package.json -r ./js ./src",
     "test": "npx eslint --ext .js . && npx mocha",
     "start": "npx electron .",
-    "make": "npx electron-builder build --publish never",
+    "make": "npx electron-builder --win portable",
     "ci": "mkdir -p oss-attribution && yarn licenses --silent generate-disclaimer > oss-attribution/attributions.txt && npx lessc --math=parens-division less/app.less css/app.css && npx electron-builder build --publish never"
   },
   "repository": {
