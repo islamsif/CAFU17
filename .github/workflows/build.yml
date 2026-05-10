@@ -1,4 +1,4 @@
-name: Build EXE
+name: Node CI
 
 on:
   push:
@@ -9,15 +9,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - uses: microsoft/setup-msbuild@v1
-
-      - run: nuget restore
-
-      - run: msbuild MasterBeach.sln /p:Configuration=Release
-
-      - uses: actions/upload-artifact@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: exe
-          path: "**/bin/Release/*.exe"
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project (if exists)
+        run: npm run build --if-present
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-build
+          path: .
