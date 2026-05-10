@@ -1,4 +1,4 @@
-name: Node CI
+name: Build Portable EXE
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -20,11 +20,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project (if exists)
-        run: npm run build --if-present
+      - name: Install pkg globally
+        run: npm install -g pkg
 
-      - name: Upload artifact
+      - name: Build portable exe
+        run: pkg . --targets node18-win-x64 --output app.exe
+
+      - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
-          name: project-build
-          path: .
+          name: portable-exe
+          path: app.exe
